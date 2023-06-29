@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %} {% block title %}Wellcome Home{% endblock %}
+
+
+{% load static %}
+
+
+{% block content%} <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    
+    <h2 class="mb-12 text-2xl text-center">New Items</h2>
+    <div class="grid grid-cols-3 gap-3">
+        {% for item in item%}
+<div>
+    <a href="{% url 'item:Detail' item.id%}"><div><img src="{{item.image.url}}" class="rounded-t-xl"></div>
+    <div class="p-6 bg-white rounded-b-xl">
+        <h2 class="text-2xl">{{item.name}}</h2>
+        <p class="text-gray-400">Price: {{item.price}}</p>
+        </div>
+    </a>
+    </div>
+
+        {% endfor %}
+        </div>
+<!-- categories -->
+        <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        
+            <h2 class="mb-12 text-2xl text-center">Categories</h2>
+            <div class="grid grid-cols-3 gap-3">
+                {% for category in categories%}
+<div>
+    <a href="">
+        <div class="p-6 bg-white rounded-b-xl">
+            <h2 class="text-2xl">{{category.name}}</h2>
+            <p class="text-gray-400"> {{category.Items.count}} Items</p>
+
+        </div>
+    </a>
+</div>
+                {% endfor%}
+                </div>
+                </div>
+</div>{% endblock %}
+
+
